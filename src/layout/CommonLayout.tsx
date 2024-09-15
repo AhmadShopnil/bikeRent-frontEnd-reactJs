@@ -4,7 +4,10 @@ import Navbar from "../components/Shared/Navbar/Navbar";
 const CommonLayout = () => {
   return (
     <div className="px-8">
-      <Navbar></Navbar>
+      <div className="sticky top-0 z-10">
+        <Navbar></Navbar>
+      </div>
+
       <Outlet></Outlet>
     </div>
   );

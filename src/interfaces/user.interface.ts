@@ -4,4 +4,8 @@ export type TUser = {
   name: string;
   age: number;
   address: string;
+  email: string;
+  phone: string;
+  role: string;
+  updatedAt: string;
 };

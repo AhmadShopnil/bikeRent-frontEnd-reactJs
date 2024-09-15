@@ -8,6 +8,9 @@ import UserManagement from "../components/Dashboard/Admin/UserManagenment/UserMa
 import AdminDasboardLayout from "../layout/AdminDasboardLayout";
 import MyRental from "../components/Dashboard/User/MyRental/MyRental";
 import BikeList from "../pages/BikeList/BikeList";
+import RentalDetails from "../components/Dashboard/User/MyRental/RentalDetails";
+import Help from "../components/Dashboard/User/Help/Help";
+import UserProfile from "../components/Dashboard/User/Profile/UserProfile";
 
 export const router = createBrowserRouter([
   {
@@ -35,7 +38,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/user/profile",
-        element: <Profile></Profile>,
+        element: <UserProfile></UserProfile>,
       },
       {
         path: "/dashboard/user/bikeList",
@@ -45,6 +48,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/user/rentalManagement",
         element: <MyRental></MyRental>,
+      },
+      {
+        path: "/dashboard/user/help",
+        element: <Help></Help>,
+      },
+      {
+        path: "/dashboard/user/rentalManagement/rentalDetails/:rentalId",
+        element: <RentalDetails></RentalDetails>,
       },
     ],
   },

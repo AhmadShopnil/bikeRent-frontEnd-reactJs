@@ -1,6 +1,7 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Navbar from "../components/Shared/Navbar/Navbar";
+import { Undo2 } from "lucide-react";
 
 const DashboardLayout = () => {
   return (
@@ -18,6 +19,17 @@ const DashboardLayout = () => {
         </div>
 
         <div className="p-4">
+          {/* back button */}
+          <button
+            className="bg-blue-500 text-sm text-white px-3 py-1 mb-6 
+            rounded-md shadow-sm
+             hover:bg-blue-700 transition-all"
+            onClick={() => window.history.back()}
+          >
+            <Undo2 size={28} />
+          </button>
+
+          {/* dynamic content */}
           <Outlet />
         </div>
       </div>

@@ -18,8 +18,11 @@ const Sidebar = () => {
   }, [isAdmin]);
 
   return (
-    <div className="sticky top-0 h-screen flex flex-col items-center border-r-2 bg-gray-100">
-      <div className="py-4">
+    <div
+      className="sticky top-0 h-screen flex flex-col 
+    items-center border-r-2 bg-gray-50"
+    >
+      <div className="py-4 ">
         <Link
           className="font-semibold text-xl text-black dark:text-white"
           to="/"
@@ -28,8 +31,8 @@ const Sidebar = () => {
         </Link>
       </div>
 
-      <div className="flex-1">
-        <ul className="space-y-1.5">
+      <div className=" w-4/5 ">
+        <ul className="space-y-1.5 ">
           <DynamicMenus menuItems={menuItems}></DynamicMenus>
         </ul>
       </div>

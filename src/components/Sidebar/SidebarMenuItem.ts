@@ -23,6 +23,7 @@ export const adminMenuItem: TSidebarItem[] = [
     icon: UserCog,
   },
 ];
+
 export const userMenuItem = [
   {
     name: " Dashboard",

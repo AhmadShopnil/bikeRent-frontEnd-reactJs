@@ -1,12 +1,29 @@
-// Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// Define a service using a base URL and expected endpoints
+// Define your base URL
+// const BASE_URL = "https://bikerent-ahmadshopnils-projects.vercel.app/api/";
+const BASE_URL = "http://localhost:5000/api/";
+
+// Create a base query with token handling
+const baseQuery = fetchBaseQuery({
+  baseUrl: BASE_URL,
+  prepareHeaders: (headers, { getState }) => {
+    // Retrieve the token from localStorage (or another secure source)
+    // const token = localStorage.getItem("token") || "";
+    const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmMyZWFmOGRhNzY5MjVkYzllY2U2YzMiLCJyb2xlIjoidXNlciIsImVtYWlsIjoidXNlcjFAZ21haWwuY29tIiwiaWF0IjoxNzI0MDUwMjEzLCJleHAiOjE3MjY2NDIyMTN9.fkdCvqE8-sIEjgl2cyvvJ_Kk5EoRW-2qg7Eey0eMMrA`;
+
+    // Set the Authorization header if the token exists
+    if (token) {
+      headers.set("Authorization", `${token}`);
+    }
+
+    return headers;
+  },
+});
+
 export const baseApi = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({
-    baseUrl: "https://bikerent-ahmadshopnils-projects.vercel.app/api/",
-  }),
-  endpoints: () => ({}),
-  tagTypes: ["users", "bikes", "rentals"],
+  baseQuery,
+  endpoints: () => ({}), // Define your endpoints in other slices
+  tagTypes: ["users", "bikes", "rentals", "profile"], // Define your tag types
 });
