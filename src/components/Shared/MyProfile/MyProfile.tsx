@@ -1,12 +1,15 @@
 import { TUser } from "../../../interfaces/user.interface";
 import { useGetMyProfileByQuery } from "../../../redux/api/userApi";
+import MyProfileSkeleton from "./MyProfileSkeleton";
 
 const MyProfile = () => {
   //   const { userId } = useParams<{ userId: string }>(); // Assuming you pass userId in route parameters
   const { data, error, isLoading } = useGetMyProfileByQuery("");
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading profile</div>;
+  if (isLoading) return <MyProfileSkeleton></MyProfileSkeleton>;
+  if (error) {
+    return <div>Error loading profile</div>;
+  }
 
   const { name, email, phone, address, role, updatedAt } = data.data as TUser;
 

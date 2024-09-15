@@ -1,15 +1,18 @@
 import { TRental } from "../../../../interfaces/rental.interface";
-import { useGetAllRentalsQuery } from "../../../../redux/api/rentalApi";
+import { useGetMyAllRentalsQuery } from "../../../../redux/api/rentalApi";
+
 import BikeTableSkeleton from "../../Admin/BikeManagement/BikeTableSkeleton";
 import MyRentalCard from "./MyRentalCard";
 
 const MyRental = () => {
-  const { data: rentals, isLoading, isError } = useGetAllRentalsQuery("");
+  const { data: rentals, isLoading, isError } = useGetMyAllRentalsQuery("");
   if (isLoading) {
     return <BikeTableSkeleton></BikeTableSkeleton>; // Show loading state
   }
 
   if (isError) {
+    // console.log("myRentals", error);
+
     return (
       <div>
         <p>Faild To load Bikes data</p>

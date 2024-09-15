@@ -4,7 +4,7 @@ import { TSidebarItem } from "../../interfaces/sidebarItem";
 export const adminMenuItem: TSidebarItem[] = [
   {
     name: " Dashboard",
-    path: "/dashboard",
+    path: "/dashboard/admin",
     icon: LayoutDashboard,
   },
   {
@@ -15,6 +15,12 @@ export const adminMenuItem: TSidebarItem[] = [
   {
     name: " Bike Management",
     path: "/dashboard/admin/bikeManagement",
+    icon: Bike,
+  },
+
+  {
+    name: "All Rental",
+    path: "/dashboard/admin/rentalManagement",
     icon: Bike,
   },
   {

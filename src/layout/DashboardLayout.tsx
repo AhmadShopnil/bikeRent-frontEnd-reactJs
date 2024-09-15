@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Navbar from "../components/Shared/Navbar/Navbar";
 import { Undo2 } from "lucide-react";

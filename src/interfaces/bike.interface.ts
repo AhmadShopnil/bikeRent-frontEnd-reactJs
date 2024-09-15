@@ -8,4 +8,5 @@ export type TBike = {
   year: number;
   model: string;
   brand: string;
+  updatedAt: string;
 };
