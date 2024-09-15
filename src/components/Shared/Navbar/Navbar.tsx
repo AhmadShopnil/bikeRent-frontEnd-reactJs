@@ -68,31 +68,19 @@ const Navbar = () => {
             aria-labelledby="hs-navbar-alignment-collapse"
           >
             <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-5">
-              <a
+              <Link
                 className="font-medium text-blue-500 focus:outline-none"
-                href="#"
+                to="/"
                 aria-current="page"
               >
-                Landing
-              </a>
-              <a
+                Home
+              </Link>
+              <Link
                 className="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-                href="#"
+                to="/bikeList"
               >
-                Account
-              </a>
-              <a
-                className="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-                href="#"
-              >
-                Work
-              </a>
-              <a
-                className="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-                href="#"
-              >
-                Blog
-              </a>
+                BikeList
+              </Link>
             </div>
           </div>
         </nav>

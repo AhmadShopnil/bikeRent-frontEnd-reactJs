@@ -3,7 +3,7 @@ import Navbar from "../components/Shared/Navbar/Navbar";
 
 const CommonLayout = () => {
   return (
-    <div>
+    <div className="px-8">
       <Navbar></Navbar>
       <Outlet></Outlet>
     </div>

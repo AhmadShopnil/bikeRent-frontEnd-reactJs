@@ -1,9 +1,22 @@
 import { TBike } from "../../../../interfaces/bike.interface";
 import { FilePenLine, Trash2 } from "lucide-react";
+import { useDeleteBikeMutation } from "../../../../redux/api/bikeApi";
+
+import LoadingSpin from "../../../Shared/Buttons/LoadingSpin";
 
 const BikeTableRow = ({ bike }: { bike: TBike }) => {
-  const handleUpdateBike = (bikeId) => {};
-  const handleDeleteSingleBike = (bikeId) => {};
+  const [deleteBike, { isLoading: isDeleting }] = useDeleteBikeMutation(); //hooks for delete bike
+
+  // handle bike delete
+  const handleDeleteSingleBike = async (bikeId: string) => {
+    try {
+      await deleteBike(bikeId);
+    } catch (error) {
+      console.error("Failed to delete bike:", error);
+    }
+  };
+  const handleUpdateBike = (bikeId: string) => {};
+
   return (
     <tr key={bike._id} className="hover:bg-gray-100 dark:hover:bg-neutral-700">
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
@@ -31,7 +44,7 @@ const BikeTableRow = ({ bike }: { bike: TBike }) => {
            disabled:pointer-events-none dark:text-blue-500
             dark:hover:text-blue-400 "
         >
-          <FilePenLine size={18} />
+          <FilePenLine size={17} />
         </button>
         <button
           onClick={() => handleDeleteSingleBike(bike?._id)}
@@ -43,7 +56,7 @@ const BikeTableRow = ({ bike }: { bike: TBike }) => {
            disabled:pointer-events-none dark:text-red-500
             dark:hover:text-red-400"
         >
-          <Trash2 size={18} />
+          {isDeleting ? <LoadingSpin></LoadingSpin> : <Trash2 size={18} />}
         </button>
       </td>
     </tr>

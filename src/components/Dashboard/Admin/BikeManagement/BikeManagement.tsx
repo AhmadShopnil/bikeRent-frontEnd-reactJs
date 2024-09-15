@@ -1,47 +1,53 @@
-import { useEffect, useState } from "react";
 import BikeListTable from "./BikeListTable";
 import BikeTableSkeleton from "./BikeTableSkeleton";
-import { TBike } from "../../../../interfaces/bike.interface";
+
 import { Bike } from "lucide-react";
 import BikeAddModal from "./BikeAddModal";
+import { useGetAllBikesQuery } from "../../../../redux/api/bikeApi";
 const BikeManagement = () => {
-  const [bikes, setBikes] = useState<TBike[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  // const [bikes, setBikes] = useState<TBike[]>([]);
+  // const [loading, setLoading] = useState<boolean>(true);
+  // const [error, setError] = useState<string | null>(null);
 
   // Fetch bikes from API
-  useEffect(() => {
-    const fetchbikes = async () => {
-      const url =
-        "https://bikerent-ahmadshopnils-projects.vercel.app/api/bikes/";
+  // useEffect(() => {
+  //   const fetchbikes = async () => {
+  //     const url =
+  //       "https://bikerent-ahmadshopnils-projects.vercel.app/api/bikes/";
 
-      try {
-        const response = await fetch(url); // Make API call
-        const data = await response.json();
-        setBikes(data.data); // Set fetched bikes
-        setLoading(false);
-      } catch (err) {
-        console.error(err);
-        setError("Failed to load bikes.");
-        setLoading(false);
-      }
-    };
+  //     try {
+  //       const response = await fetch(url); // Make API call
+  //       const data = await response.json();
+  //       setBikes(data.data); // Set fetched bikes
+  //       setLoading(false);
+  //     } catch (err) {
+  //       console.error(err);
+  //       setError("Failed to load bikes.");
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchbikes(); // Call the fetch function
-  }, []);
+  //   fetchbikes(); // Call the fetch function
+  // }, []);
 
-  if (loading) {
+  const { data: bikes, isLoading, isError } = useGetAllBikesQuery("");
+
+  if (isLoading) {
     return <BikeTableSkeleton></BikeTableSkeleton>; // Show loading state
   }
 
-  if (error) {
-    return <div>{error}</div>; // Show error message
+  if (isError) {
+    return (
+      <div>
+        <p>Faild To load Bikes data</p>
+      </div>
+    ); // Show error message
   }
 
   return (
     <div>
       {/* bike List */}
-      <BikeListTable bikes={bikes}></BikeListTable>
+      <BikeListTable bikes={bikes?.data}></BikeListTable>
 
       {/* Add New Bike */}
       <div className="mt-10">

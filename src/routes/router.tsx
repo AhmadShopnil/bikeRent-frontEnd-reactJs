@@ -6,6 +6,8 @@ import Profile from "../components/Dashboard/Admin/Profile/Profile";
 import BikeManagement from "../components/Dashboard/Admin/BikeManagement/BikeManagement";
 import UserManagement from "../components/Dashboard/Admin/UserManagenment/UserManagement";
 import AdminDasboardLayout from "../layout/AdminDasboardLayout";
+import MyRental from "../components/Dashboard/User/MyRental/MyRental";
+import BikeList from "../pages/BikeList/BikeList";
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +17,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/bikeList",
+        element: <BikeList></BikeList>,
       },
     ],
   },
@@ -38,7 +44,7 @@ export const router = createBrowserRouter([
 
       {
         path: "/dashboard/user/rentalManagement",
-        element: <BikeManagement></BikeManagement>,
+        element: <MyRental></MyRental>,
       },
     ],
   },

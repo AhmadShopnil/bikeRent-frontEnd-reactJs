@@ -25,6 +25,11 @@ export const adminMenuItem: TSidebarItem[] = [
 ];
 export const userMenuItem = [
   {
+    name: " Dashboard",
+    path: "/dashboard/user",
+    icon: LayoutDashboard,
+  },
+  {
     name: " Profile",
     path: "/dashboard/user/profile",
     icon: User,
@@ -35,7 +40,7 @@ export const userMenuItem = [
     icon: Bike,
   },
   {
-    name: "Rental Management",
+    name: "MyRental",
     path: "/dashboard/user/rentalManagement",
     icon: Bike,
   },
