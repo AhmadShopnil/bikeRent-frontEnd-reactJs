@@ -1,8 +1,22 @@
 import { Link } from "react-router-dom";
-import { adminMenuItem } from "./SidebarMenuItem";
+import { adminMenuItem, userMenuItem } from "./SidebarMenuItem";
 import DynamicMenus from "./DynamicMenus";
+import { useEffect, useState } from "react";
+import { TSidebarItem } from "../../interfaces/sidebarItem";
 
 const Sidebar = () => {
+  const [menuItems, setMenuItems] = useState<TSidebarItem[]>([]);
+
+  const isAdmin = false; // This could come from props or context
+
+  useEffect(() => {
+    if (isAdmin) {
+      setMenuItems(adminMenuItem);
+    } else {
+      setMenuItems(userMenuItem);
+    }
+  }, [isAdmin]);
+
   return (
     <div className="sticky top-0 h-screen flex flex-col items-center border-r-2 bg-gray-100">
       <div className="py-4">
@@ -16,7 +30,7 @@ const Sidebar = () => {
 
       <div className="flex-1">
         <ul className="space-y-1.5">
-          <DynamicMenus menuItems={adminMenuItem}></DynamicMenus>
+          <DynamicMenus menuItems={menuItems}></DynamicMenus>
         </ul>
       </div>
     </div>

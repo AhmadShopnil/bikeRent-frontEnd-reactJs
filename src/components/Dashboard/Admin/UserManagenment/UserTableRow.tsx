@@ -1,4 +1,5 @@
 import { TUser } from "../../../../interfaces/user.interface";
+import { Trash2 } from "lucide-react";
 
 export const UserTableRow = ({ user }: { user: TUser }) => {
   const handleDeleteSingleUser = (id: string) => {};
@@ -40,10 +41,9 @@ export const UserTableRow = ({ user }: { user: TUser }) => {
              disabled:pointer-events-none dark:text-red-500
               dark:hover:text-red-400"
         >
-          Delete
+          <Trash2 size={18} />
         </button>
       </td>
-      {/* <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium"></td> */}
     </tr>
   );
 };

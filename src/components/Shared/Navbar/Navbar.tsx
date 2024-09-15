@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const role = "user";
   return (
     <div className="bg-slate-400">
       <header className="flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-3 dark:bg-neutral-800">
@@ -58,7 +59,7 @@ const Navbar = () => {
               type="button"
               className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
             >
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to={`/dashboard/${role}`}>Dashboard</Link>
             </button>
           </div>
           <div

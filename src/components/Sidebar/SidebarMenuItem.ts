@@ -1,6 +1,7 @@
-import { LayoutDashboard, Bike, UserPen, CircleHelp } from "lucide-react";
+import { LayoutDashboard, Bike, UserCog, User, CircleHelp } from "lucide-react";
+import { TSidebarItem } from "../../interfaces/sidebarItem";
 
-export const adminMenuItem = [
+export const adminMenuItem: TSidebarItem[] = [
   {
     name: " Dashboard",
     path: "/dashboard",
@@ -8,39 +9,39 @@ export const adminMenuItem = [
   },
   {
     name: " Profile",
-    path: "/dashboard/profile",
-    icon: UserPen,
+    path: "/dashboard/admin/profile",
+    icon: User,
   },
   {
     name: " Bike Management",
-    path: "/dashboard/bikeManagement",
+    path: "/dashboard/admin/bikeManagement",
     icon: Bike,
   },
   {
     name: " User Management",
-    path: "/dashboard/userManagement",
-    icon: UserPen,
+    path: "/dashboard/admin/userManagement",
+    icon: UserCog,
   },
 ];
 export const userMenuItem = [
   {
     name: " Profile",
-    path: "/dashboard",
-    icon: UserPen,
+    path: "/dashboard/user/profile",
+    icon: User,
   },
   {
     name: " Bike List",
-    path: "/dashboard/bikeList",
+    path: "/dashboard/user/bikeList",
     icon: Bike,
   },
   {
     name: "Rental Management",
-    path: "/dashboard/userManagement",
-    icon: "",
+    path: "/dashboard/user/rentalManagement",
+    icon: Bike,
   },
   {
     name: "Help",
-    path: "/dashboard/userManagement",
+    path: "/dashboard/user/Help",
     icon: CircleHelp,
   },
 ];
