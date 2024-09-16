@@ -26,7 +26,7 @@ const DashboardLayout = () => {
              hover:bg-blue-700 transition-all"
             onClick={() => window.history.back()}
           >
-            <Undo2 size={28} />
+            <Undo2 size={22} />
           </button>
 
           {/* dynamic content */}

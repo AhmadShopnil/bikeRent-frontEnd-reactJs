@@ -1,13 +1,14 @@
 import { useState } from "react";
 import BikeTableSkeleton from "../../components/Dashboard/Admin/BikeManagement/BikeTableSkeleton";
-import BikeCard from "../../components/Shared/BikeCard/BikeCard";
+
 import { TBike } from "../../interfaces/bike.interface";
 import { useGetAllBikesQuery } from "../../redux/api/bikeApi";
 import BikeFilters from "./BikeFilters";
-import CardBike from "./CardBike";
+import CardBike from "../../components/Shared/BikeCard/CardBike";
 
 const BikeList = () => {
   const { data: bikes, isLoading, isError } = useGetAllBikesQuery("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [filteredBikes, setFilteredBikes] = useState(bikes?.data || []);
   if (isLoading) {
     return <BikeTableSkeleton></BikeTableSkeleton>; // Show loading state

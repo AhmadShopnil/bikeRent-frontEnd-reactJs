@@ -4,7 +4,7 @@ import Providers from "./lib/Providers/Providers";
 
 function App() {
   return (
-    <div className="">
+    <div className="max-w-screen-2xl m-auto">
       <Providers>
         <RouterProvider router={router} />
       </Providers>

@@ -66,7 +66,7 @@ const BikeManagement = () => {
           <Bike size={20} />
         </button>
 
-        <BikeAddModal></BikeAddModal>
+        {/* <BikeAddModal></BikeAddModal> */}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { TSidebarItem } from "../../interfaces/sidebarItem";
 const Sidebar = () => {
   const [menuItems, setMenuItems] = useState<TSidebarItem[]>([]);
 
-  const isAdmin = false; // This could come from props or context
+  const isAdmin = true; // This could come from props or context
 
   useEffect(() => {
     if (isAdmin) {

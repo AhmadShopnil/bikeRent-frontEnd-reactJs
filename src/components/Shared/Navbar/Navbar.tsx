@@ -55,10 +55,10 @@ const Navbar = () => {
               </svg>
               <span className="sr-only">Toggle</span>
             </button>
-
-            <button
-              type="button"
-              className="py-2 px-3 inline-flex items-center 
+            <Link to={`/dashboard/${role}`}>
+              <button
+                type="button"
+                className="py-2 px-3 inline-flex items-center 
               gap-x-2 text-sm font-medium rounded-lg border
                border-blue-600 text-blue-600 hover:border-blue-500
                 hover:text-blue-500
@@ -66,9 +66,10 @@ const Navbar = () => {
                  dark:border-blue-500
                   dark:text-blue-500 dark:hover:text-blue-400
                dark:hover:border-blue-400"
-            >
-              <Link to={`/dashboard/${role}`}>Dashboard</Link>
-            </button>
+              >
+                Dashboard
+              </button>
+            </Link>
 
             {/* <button
               type="button"
