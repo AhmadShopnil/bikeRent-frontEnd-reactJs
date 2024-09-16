@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import CommonLayout from "../layout/CommonLayout";
 import Home from "../pages/Home/Home";
-import DashboardLayout from "../layout/DashboardLayout";
 
 import BikeManagement from "../components/Dashboard/Admin/BikeManagement/BikeManagement";
 import UserManagement from "../components/Dashboard/Admin/UserManagenment/UserManagement";
@@ -17,6 +16,10 @@ import AdminProfile from "../components/Dashboard/Admin/Profile/Profile";
 import BikeDetailsPage from "../pages/BikeDetailsPage/BikeDetailsPage";
 import CheckoutPage from "../pages/CheckoutPage/ChekoutPage";
 import BookingConfirmation from "../pages/CheckoutPage/BookingConfermation";
+import Dashboard2 from "../layout/Dashboard2";
+import UserDashboard from "../components/Dashboard/User/Dashboard/UserDashboard";
+import Login from "../pages/Login/Login";
+import SignUp from "../pages/SignUp/SignUp";
 
 export const router = createBrowserRouter([
   {
@@ -35,16 +38,25 @@ export const router = createBrowserRouter([
         path: "/bikes/:bikeId",
         element: <BikeDetailsPage></BikeDetailsPage>,
       },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
+      },
     ],
   },
 
   {
     path: "/dashboard/user",
-    element: <DashboardLayout></DashboardLayout>,
+    // element: <DashboardLayout></DashboardLayout>,
+    element: <Dashboard2></Dashboard2>,
     children: [
       {
         path: "/dashboard/user",
-        element: <Home></Home>,
+        element: <UserDashboard></UserDashboard>,
       },
 
       {
@@ -81,7 +93,9 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard/admin",
-    element: <DashboardLayout></DashboardLayout>,
+    // element: <Dashboard3></Dashboard3>,
+    element: <Dashboard2></Dashboard2>,
+    // element: <DashboardLayout></DashboardLayout>,
     children: [
       {
         path: "/dashboard/admin",

@@ -32,7 +32,10 @@ const BikeList = () => {
         bikes={bikes?.data || []}
         setFilteredBikes={setFilteredBikes}
       />
-      <div className="grid  grid-cols-4 gap-6">
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2
+       md:grid-cols-3 lg:grid-cols-4  gap-6"
+      >
         {bikes?.data?.map((bike: TBike) => (
           <CardBike bike={bike} key={bike?._id}></CardBike>
         ))}
