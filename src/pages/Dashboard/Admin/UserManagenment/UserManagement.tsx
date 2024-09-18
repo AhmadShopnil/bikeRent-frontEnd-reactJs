@@ -1,5 +1,6 @@
+import TableSkeleton from "../../../../components/Shared/Skeleton/TableSkeleton";
 import { useGetAllUsersQuery } from "../../../../redux/api/userApi";
-import TableSkeleton from "../../../Shared/Skeleton/TableSkeleton";
+
 import UserTable from "./UserTable";
 
 const UserManagement = () => {

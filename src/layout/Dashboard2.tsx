@@ -37,7 +37,10 @@ const Dashboard2 = () => {
             </div>
           </div>
           {/* dynamic content */}
-          <div className="px-0 sm:px-0 md:px-22 lg:px-32">
+          <div
+            className="px-0 sm:px-0 md:px-22 
+          lg:px-32 py-2  md:pb-14 lg:pb-32"
+          >
             <Outlet />
           </div>
         </div>

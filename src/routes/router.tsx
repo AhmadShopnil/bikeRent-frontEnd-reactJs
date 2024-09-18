@@ -1,25 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
 import CommonLayout from "../layout/CommonLayout";
 import Home from "../pages/Home/Home";
-
-import BikeManagement from "../components/Dashboard/Admin/BikeManagement/BikeManagement";
-import UserManagement from "../components/Dashboard/Admin/UserManagenment/UserManagement";
-
-import MyRental from "../components/Dashboard/User/MyRental/MyRental";
 import BikeList from "../pages/BikeList/BikeList";
-import RentalDetails from "../components/Dashboard/User/MyRental/RentalDetails";
-import Help from "../components/Dashboard/User/Help/Help";
-import UserProfile from "../components/Dashboard/User/Profile/UserProfile";
-import AdminDashboard from "../components/Dashboard/Admin/AdminDashboard/AdminDashboard";
-import AllRental from "../components/Dashboard/Admin/AllRental/AllRental";
-import AdminProfile from "../components/Dashboard/Admin/Profile/Profile";
 import BikeDetailsPage from "../pages/BikeDetailsPage/BikeDetailsPage";
 import CheckoutPage from "../pages/CheckoutPage/ChekoutPage";
 import BookingConfirmation from "../pages/CheckoutPage/BookingConfermation";
 import Dashboard2 from "../layout/Dashboard2";
-import UserDashboard from "../components/Dashboard/User/Dashboard/UserDashboard";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import UserDashboard from "../pages/Dashboard/User/Dashboard/UserDashboard";
+import UserProfile from "../pages/Dashboard/User/Profile/UserProfile";
+import BikeManagement from "../pages/Dashboard/Admin/BikeManagement/BikeManagement";
+import MyRental from "../pages/Dashboard/User/MyRental/MyRental";
+import Help from "../pages/Dashboard/User/Help/Help";
+import RentalDetails from "../pages/Dashboard/User/MyRental/RentalDetails";
+import AdminDashboard from "../pages/Dashboard/Admin/AdminDashboard/AdminDashboard";
+import AdminProfile from "../pages/Dashboard/Admin/Profile/Profile";
+import AllRental from "../pages/Dashboard/Admin/AllRental/AllRental";
+import UserManagement from "../pages/Dashboard/Admin/UserManagenment/UserManagement";
 
 export const router = createBrowserRouter([
   {

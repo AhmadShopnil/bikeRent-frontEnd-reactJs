@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { TBike } from "../../../interfaces/bike.interface";
+import SolidPrimaryButton from "../Buttons/SolidPrimaryButton";
 
 const BikeDetails = ({ bike }: { bike: TBike }) => {
   const {
@@ -78,12 +79,7 @@ const BikeDetails = ({ bike }: { bike: TBike }) => {
       {/* Rent Now Button */}
       <div className="mt-6">
         <Link to={`/dashboard/user/checkout/${_id}`}>
-          <button
-            className="bg-teal-500 text-white px-6 py-2 rounded-lg shadow-md
-              hover:bg-teal-600 transition-colors duration-300"
-          >
-            Rent Now
-          </button>
+          <SolidPrimaryButton> Rent Now</SolidPrimaryButton>
         </Link>
       </div>
     </div>

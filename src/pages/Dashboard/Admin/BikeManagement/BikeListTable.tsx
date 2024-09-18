@@ -11,7 +11,6 @@ const BikeListTable = ({ bikes }: { bikes: TBike[] }) => {
               <caption className="py-2 text-start text-md text-gray-600 dark:text-neutral-500">
                 List of bikes
               </caption>
-
               <thead>
                 <tr>
                   <th

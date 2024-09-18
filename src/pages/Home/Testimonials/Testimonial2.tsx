@@ -1,4 +1,4 @@
-const Testimonials = () => {
+const Testimonial2 = () => {
   const testimonials = [
     {
       name: "John Doe",
@@ -51,4 +51,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default Testimonial2;

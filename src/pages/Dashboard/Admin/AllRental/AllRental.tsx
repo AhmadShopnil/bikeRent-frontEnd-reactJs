@@ -1,12 +1,13 @@
+import TableSkeleton from "../../../../components/Shared/Skeleton/TableSkeleton";
 import { useGetAllRentalsQuery } from "../../../../redux/api/rentalApi";
-import BikeTableSkeleton from "../BikeManagement/BikeTableSkeleton";
+
 import AllRentalTable from "./AllRentalTable";
 
 const AllRental = () => {
   const { data, isLoading, isError, error } = useGetAllRentalsQuery("");
 
   if (isLoading) {
-    return <BikeTableSkeleton></BikeTableSkeleton>; // Show loading state
+    return <TableSkeleton></TableSkeleton>; // Show loading state
   }
 
   if (isError) {

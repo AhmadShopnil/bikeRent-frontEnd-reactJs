@@ -1,4 +1,4 @@
-import MyProfile from "../../../Shared/MyProfile/MyProfile";
+import MyProfile from "../../../../components/Shared/MyProfile/MyProfile";
 
 const UserProfile = () => {
   return (

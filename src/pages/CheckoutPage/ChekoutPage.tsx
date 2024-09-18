@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useGetSingleBikeByIdQuery } from "../../redux/api/bikeApi";
-import BikeTableSkeleton from "../../components/Dashboard/Admin/BikeManagement/BikeTableSkeleton";
+import TableSkeleton from "../../components/Shared/Skeleton/TableSkeleton";
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const CheckoutPage = () => {
   const { data, isLoading, isError, error } = useGetSingleBikeByIdQuery(bikeId);
 
   if (isLoading) {
-    return <BikeTableSkeleton></BikeTableSkeleton>; // Show loading state
+    return <TableSkeleton></TableSkeleton>; // Show loading state
   }
 
   if (isError) {
@@ -51,8 +51,8 @@ const CheckoutPage = () => {
       <div className="mt-6">
         <button
           onClick={handleConfirmBooking}
-          className="bg-teal-500 text-white px-6 py-3 rounded-lg shadow-md
-          hover:bg-teal-600 transition-colors duration-300"
+          className="bg-[#6AB9E2] text-white px-4 py-2 rounded-lg shadow-md
+          hover:bg-[#51b0e3] transition-colors duration-300"
         >
           Confirm Booking
         </button>

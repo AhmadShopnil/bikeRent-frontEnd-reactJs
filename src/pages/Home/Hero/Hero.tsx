@@ -3,7 +3,7 @@ import BikeAnimation from "./BIkeAnimation";
 const Hero = () => {
   return (
     <div
-      className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8
+      className=" mx-auto px-4 sm:px-6 lg:px-8
       bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 size-full
         rounded-md 
        dark:from-neutral-800 dark:via-neutral-900/0

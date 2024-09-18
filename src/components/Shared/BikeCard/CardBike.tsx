@@ -4,8 +4,8 @@ import { TBike } from "../../../interfaces/bike.interface";
 const CardBike = ({ bike }: { bike: TBike }) => {
   return (
     <div
-      className="p-2 w-full flex flex-col bg-white border border-t-4
-     border-t-blue-300 shadow-sm rounded-xl dark:bg-neutral-900
+      className="p-2 w-full flex flex-col bg-white  border-t-4
+     border-t-blue-300 shadow-md rounded-xl dark:bg-neutral-900
       dark:border-neutral-700
      dark:border-t-blue-500 dark:shadow-neutral-700/70"
     >
@@ -21,7 +21,8 @@ const CardBike = ({ bike }: { bike: TBike }) => {
       </p>
       <Link
         to={`/bikes/${bike._id}`}
-        className="mt-4 inline-block bg-[#6AB9E2] text-white px-4 py-2 rounded-md hover:bg-teal-700"
+        className="mt-4 inline-block bg-[#6AB9E2]
+         text-white px-4 py-2 rounded-md hover:bg-[#000921]"
       >
         View Details
       </Link>

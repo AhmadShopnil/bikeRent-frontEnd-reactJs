@@ -1,8 +1,7 @@
 import { TBike } from "../../../../interfaces/bike.interface";
 import { FilePenLine, Trash2 } from "lucide-react";
 import { useDeleteBikeMutation } from "../../../../redux/api/bikeApi";
-
-import LoadingSpin from "../../../Shared/Buttons/LoadingSpin";
+import LoadingSpin from "../../../../components/Shared/Buttons/LoadingSpin";
 
 const BikeTableRow = ({ bike }: { bike: TBike }) => {
   const [deleteBike, { isLoading: isDeleting }] = useDeleteBikeMutation(); //hooks for delete bike

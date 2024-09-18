@@ -7,8 +7,8 @@ const bikeApi = baseApi.injectEndpoints({
         return {
           url: "/bikes",
           method: "POST",
-          contentType: "multipart/form-data",
-          // contentType: "application/json",
+          // contentType: "multipart/form-data",
+          contentType: "application/json",
           body: data,
         };
       },

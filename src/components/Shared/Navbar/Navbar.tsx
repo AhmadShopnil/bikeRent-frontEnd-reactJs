@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { navMenuItems } from "./NavMenuItem";
+import SolidPrimaryButton from "../Buttons/SolidPrimaryButton";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +13,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="bg-white ">
+    <nav className="bg-white  ">
       <div className="container mx-auto flex justify-between items-center py-4 px-4">
         {/* Left Side: Brand Name */}
         <div className="text-2xl font-bold">
@@ -35,15 +36,28 @@ const Navbar = () => {
 
         {/* Right Side: Auth and Dashboard Buttons */}
         <div className="hidden md:flex space-x-4">
-          <Link to="/login" className="btn btn-sm btn-outline btn-white">
+          <Link
+            to="/login"
+            className="py-2 px-4 inline-flex items-center 
+          gap-x-2 text-sm font-medium rounded-lg border
+           border-gray-200 bg-white text-gray-800 shadow-sm
+            hover:bg-gray-50 focus:outline-none"
+          >
             Login
           </Link>
-          <Link to="/signup" className="btn btn-sm btn-outline btn-white">
+          <Link
+            to="/signup"
+            className="py-2 px-4 inline-flex items-center 
+          gap-x-2 text-sm font-medium rounded-lg border
+           border-gray-200 bg-white text-gray-800 shadow-sm
+            hover:bg-gray-50 focus:outline-none 
+          "
+          >
             Signup
           </Link>
 
-          <Link to={`/dashboard/${role}`} className="btn btn-sm btn-primary">
-            Dashboard
+          <Link to={`/dashboard/${role}`}>
+            <SolidPrimaryButton>Dashboard</SolidPrimaryButton>
           </Link>
         </div>
 

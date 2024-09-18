@@ -2,14 +2,14 @@ const OurSuccess = () => {
   return (
     <div>
       {/* <!-- Testimonials with Stats --> */}
-      <div className="max-w-[85rem] px-4 py-2 sm:px-6 lg:px-4 lg:py-2 mx-auto">
+      <div className=" py-2 lg:py-2 mx-auto">
         {/* <!-- Grid --> */}
         <div className="lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center lg:justify-between">
           <div className="lg:col-span-5 lg:col-start-1">
             {/* <!-- Title --> */}
             <div className="mb-8">
               <h2 className="mb-2 text-3xl text-gray-800 font-bold lg:text-4xl dark:text-neutral-200">
-                It's all about speed
+                It's all about Service
               </h2>
               <p className="text-gray-600 dark:text-neutral-400">
                 We provide you with a test account that can be set up in
@@ -39,10 +39,10 @@ const OurSuccess = () => {
                   </div>
                   <div className="grow">
                     <div className="font-semibold text-gray-800 dark:text-neutral-200">
-                      Josh Grazioso
+                      Abu Shaleh Ahamad Shopnil
                     </div>
                     <div className="text-xs text-gray-500 dark:text-neutral-500">
-                      Director Payments & Risk | Airbnb
+                      Founder and Ceo | BikeRent
                     </div>
                   </div>
                 </div>
@@ -58,10 +58,10 @@ const OurSuccess = () => {
               <ul className="grid grid-cols-2 divide-y  divide-x  divide-gray-200 overflow-hidden dark:divide-neutral-700">
                 <li className="flex flex-col -m-0.5 p-4 sm:p-8">
                   <div className="flex items-end gap-x-2 text-3xl sm:text-5xl font-bold text-gray-800 mb-2 dark:text-neutral-200">
-                    45k+
+                    1k+
                   </div>
                   <p className="text-sm sm:text-base text-gray-600 dark:text-neutral-400">
-                    users - from new startups to public companies
+                    users - from all city
                   </p>
                 </li>
 
@@ -82,10 +82,10 @@ const OurSuccess = () => {
                       <path d="m5 12 7-7 7 7" />
                       <path d="M12 19V5" />
                     </svg>
-                    23%
+                    30%
                   </div>
                   <p className="text-sm sm:text-base text-gray-600 dark:text-neutral-400">
-                    increase in traffic on webpages with Looms
+                    decrease traffic problem
                   </p>
                 </li>
 
@@ -118,7 +118,7 @@ const OurSuccess = () => {
                     2x
                   </div>
                   <p className="text-sm sm:text-base text-gray-600 dark:text-neutral-400">
-                    faster than previous Preline versions
+                    faster than others
                   </p>
                 </li>
               </ul>

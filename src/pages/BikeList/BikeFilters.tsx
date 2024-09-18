@@ -50,10 +50,11 @@ const BikeFilters = ({
 
       <button
         onClick={filterBikes}
-        className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-      >
-        Apply Filters
-      </button>
+        className="py-2 px-4 inline-flex
+               items-center gap-x-2 text-md font-medium
+                rounded-lg border border-transparent bg-[#6AB9E2]
+                 text-white hover:bg-[#51b0e3] focus:outline-none"
+      ></button>
     </div>
   );
 };
