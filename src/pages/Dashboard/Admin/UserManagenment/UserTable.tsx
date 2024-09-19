@@ -24,7 +24,7 @@ const UserTable = ({ users }: { users: TUser[] }) => {
                     scope="col"
                     className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500"
                   >
-                    Age
+                    Phone
                   </th>
                   <th
                     scope="col"
@@ -42,7 +42,7 @@ const UserTable = ({ users }: { users: TUser[] }) => {
               </thead>
               <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
                 {users.map((user) => (
-                  <UserTableRow user={user} key={user?.id}></UserTableRow>
+                  <UserTableRow user={user} key={user?._id}></UserTableRow>
                 ))}
               </tbody>
             </table>

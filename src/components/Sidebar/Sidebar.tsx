@@ -3,19 +3,19 @@ import { adminMenuItem, userMenuItem } from "./SidebarMenuItem";
 import DynamicMenus from "./DynamicMenus";
 import { useEffect, useState } from "react";
 import { TSidebarItem } from "../../interfaces/sidebarItem";
+import { getUserInfo } from "../../services/authServices";
 
 const Sidebar = () => {
   const [menuItems, setMenuItems] = useState<TSidebarItem[]>([]);
-
-  const isAdmin = true; // This could come from props or context
+  const user: any = getUserInfo();
 
   useEffect(() => {
-    if (isAdmin) {
+    if (user?.role === "admin") {
       setMenuItems(adminMenuItem);
     } else {
       setMenuItems(userMenuItem);
     }
-  }, [isAdmin]);
+  }, [user]);
 
   return (
     <div

@@ -18,6 +18,7 @@ import AdminDashboard from "../pages/Dashboard/Admin/AdminDashboard/AdminDashboa
 import AdminProfile from "../pages/Dashboard/Admin/Profile/Profile";
 import AllRental from "../pages/Dashboard/Admin/AllRental/AllRental";
 import UserManagement from "../pages/Dashboard/Admin/UserManagenment/UserManagement";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: "/bikeList",
         element: <BikeList></BikeList>,
+      },
+      {
+        path: "/aboutUs",
+        element: <AboutUs></AboutUs>,
       },
       {
         path: "/bikes/:bikeId",

@@ -6,6 +6,7 @@ const userApi = baseApi.injectEndpoints({
       query: (data) => {
         return {
           url: "/auth/signup",
+
           method: "POST",
           // contentType: "multipart/form-data",
           contentType: "application/json",
@@ -35,7 +36,7 @@ const userApi = baseApi.injectEndpoints({
           method: "GET",
         };
       },
-      providesTags: ["profile"],
+      providesTags: ["users"],
     }),
     getMyProfileBy: build.query({
       query: () => {
@@ -46,8 +47,23 @@ const userApi = baseApi.injectEndpoints({
       },
       providesTags: ["profile"],
     }),
+    makeAdmin: build.mutation({
+      query: (id) => {
+        return {
+          url: `/users/makeAdmin/${id}`,
+          method: "PUT",
+        };
+      },
+      invalidatesTags: ["users"],
+    }),
     //
-
+    deleteSingleUser: build.mutation({
+      query: (id) => ({
+        url: `/users/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["users"],
+    }),
     //
   }),
 });
@@ -57,4 +73,6 @@ export const {
   useGetAllUsersQuery,
   useLoginMutation,
   useSignUpMutation,
+  useMakeAdminMutation,
+  useDeleteSingleUserMutation,
 } = userApi;
