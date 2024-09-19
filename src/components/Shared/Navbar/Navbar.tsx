@@ -1,13 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { navMenuItems } from "./NavMenuItem";
 import SolidPrimaryButton from "../Buttons/SolidPrimaryButton";
+import {
+  getUserInfo,
+  removeUser,
+  isLoggedIn,
+} from "../../../services/authServices";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const user: any = getUserInfo();
+  const loggedin = isLoggedIn();
+  const role = user?.role;
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(loggedin);
 
-  const role = "admin";
+  useEffect(() => {
+    if (user?.role) {
+      setIsUserLoggedIn(true);
+    }
+  }, [user, loggedin]);
+
+  //  handle logOut user
+  const handleLogout = () => {
+    removeUser();
+    setIsUserLoggedIn(false);
+  };
 
   // Toggle function for mobile menu
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -36,29 +55,45 @@ const Navbar = () => {
 
         {/* Right Side: Auth and Dashboard Buttons */}
         <div className="hidden md:flex space-x-4">
-          <Link
-            to="/login"
-            className="py-2 px-4 inline-flex items-center 
+          {isUserLoggedIn ? (
+            <>
+              <button
+                onClick={handleLogout}
+                className="py-2 px-4 inline-flex items-center 
+          gap-x-2 text-sm font-medium rounded-lg border
+           border-gray-200 bg-white text-gray-800 shadow-sm
+            hover:bg-red-100 focus:outline-none"
+              >
+                Logout
+              </button>
+
+              <Link to={`/dashboard/${role}`}>
+                <SolidPrimaryButton>Dashboard</SolidPrimaryButton>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="py-2 px-4 inline-flex items-center 
           gap-x-2 text-sm font-medium rounded-lg border
            border-gray-200 bg-white text-gray-800 shadow-sm
             hover:bg-gray-50 focus:outline-none"
-          >
-            Login
-          </Link>
-          <Link
-            to="/signup"
-            className="py-2 px-4 inline-flex items-center 
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="py-2 px-4 inline-flex items-center 
           gap-x-2 text-sm font-medium rounded-lg border
            border-gray-200 bg-white text-gray-800 shadow-sm
             hover:bg-gray-50 focus:outline-none 
           "
-          >
-            Signup
-          </Link>
-
-          <Link to={`/dashboard/${role}`}>
-            <SolidPrimaryButton>Dashboard</SolidPrimaryButton>
-          </Link>
+              >
+                Signup
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Toggle (visible on small screens) */}
@@ -82,15 +117,22 @@ const Navbar = () => {
             ))}
             {/* right side */}
             <div className="flex flex-col space-y-2 mt-4">
-              <Link to="/login" className="btn btn-outline btn-white">
-                Login
-              </Link>
-              <Link to="/signup" className="btn btn-outline btn-white">
-                Signup
-              </Link>
-              <Link to={`dashboard/${role}`} className="btn btn-primary">
-                Dashboard
-              </Link>
+              {user?.role ? (
+                <>
+                  <Link to={`dashboard/${role}`} className="btn btn-primary">
+                    Dashboard
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="btn btn-outline btn-white">
+                    Login
+                  </Link>
+                  <Link to="/signup" className="btn btn-outline btn-white">
+                    Signup
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

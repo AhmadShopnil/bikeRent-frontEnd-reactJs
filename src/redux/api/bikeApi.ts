@@ -43,6 +43,17 @@ const bikeApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["bikes"],
     }),
+
+    updateBike: build.mutation({
+      query: (updatedData) => ({
+        url: `/bikes/${updatedData?._id}`,
+        method: "PUT",
+        // contentType: "multipart/form-data",
+        contentType: "application/json",
+        body: updatedData,
+      }),
+      invalidatesTags: ["bikes"],
+    }),
     //
   }),
 });
@@ -52,4 +63,5 @@ export const {
   useDeleteBikeMutation,
   useGetAllBikesQuery,
   useGetSingleBikeByIdQuery,
+  useUpdateBikeMutation,
 } = bikeApi;

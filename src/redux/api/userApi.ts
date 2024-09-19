@@ -2,13 +2,26 @@ import { baseApi } from "./baseApi";
 
 const userApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
+    signUp: build.mutation({
+      query: (data) => {
+        return {
+          url: "/auth/signup",
+          method: "POST",
+          // contentType: "multipart/form-data",
+          contentType: "application/json",
+          body: data,
+        };
+      },
+      // invalidatesTags: ["profile"],
+    }),
+
     login: build.mutation({
       query: (data) => {
         return {
           url: "/auth/login",
           method: "POST",
-          contentType: "multipart/form-data",
-          // contentType: "application/json",
+          // contentType: "multipart/form-data",
+          contentType: "application/json",
           body: data,
         };
       },
@@ -34,16 +47,14 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["profile"],
     }),
     //
-    // deleteRental: build.mutation({
-    //   query: (id) => ({
-    //     url: `/rentals/${id}`,
-    //     method: "DELETE",
-    //   }),
-    //   invalidatesTags: ["rentals"],
-    // }),
+
     //
   }),
 });
 
-export const { useGetMyProfileByQuery, useGetAllUsersQuery, useLoginMutation } =
-  userApi;
+export const {
+  useGetMyProfileByQuery,
+  useGetAllUsersQuery,
+  useLoginMutation,
+  useSignUpMutation,
+} = userApi;
