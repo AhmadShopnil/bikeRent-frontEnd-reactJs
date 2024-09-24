@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useSignUpMutation } from "../../redux/api/userApi";
 import { saveUserInfo } from "../../services/authServices";
@@ -13,6 +14,7 @@ interface SignupData {
 }
 
 const Signup = () => {
+  const [signupError,setSignupError]=useState('')
   const [signupData, setSignupData] = useState<SignupData>({
     name: "",
     email: "",
@@ -22,7 +24,7 @@ const Signup = () => {
     role: "user",
   });
   const navigate = useNavigate();
-  const [signup, { error }] = useSignUpMutation();
+  const [signup] = useSignUpMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSignupData({
@@ -43,8 +45,8 @@ const Signup = () => {
         saveUserInfo({ accessToken });
         navigate("/");
       }
-    } catch (error) {
-      console.error("Signup failed:", error);
+    } catch (error:any) {
+      setSignupError(error?.data?.message)
     }
   };
 
@@ -52,7 +54,7 @@ const Signup = () => {
     <div className="min-h-screen flex items-center justify-center">
       <form onSubmit={handleSubmit} className="space-y-6">
         <h2 className="text-xl font-bold">Signup</h2>
-        <span className="text-red-400">{error?.data?.message}</span>
+        <span className="text-red-400">{signupError}</span>
         <input
           type="text"
           name="name"

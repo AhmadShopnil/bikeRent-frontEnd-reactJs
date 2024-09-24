@@ -7,8 +7,8 @@ const rentalApi = baseApi.injectEndpoints({
         return {
           url: "/rentals",
           method: "POST",
-          contentType: "multipart/form-data",
-          // contentType: "application/json",
+          // contentType: "multipart/form-data",
+          contentType: "application/json",
           body: data,
         };
       },
@@ -50,6 +50,13 @@ const rentalApi = baseApi.injectEndpoints({
       invalidatesTags: ["rentals"],
     }),
     //
+    returnRental: build.mutation({
+      query: (id) => ({
+        url: `/rentals/${id}/return`,
+        method: "PUT",
+      }),
+      invalidatesTags: ["rentals"],
+    }),
   }),
 });
 
@@ -59,4 +66,5 @@ export const {
   useGetMyAllRentalsQuery,
   useGetAllRentalsQuery,
   useGetSingleRentalsByIdQuery,
+  useReturnRentalMutation
 } = rentalApi;

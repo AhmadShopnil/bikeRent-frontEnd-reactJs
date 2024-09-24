@@ -1,7 +1,8 @@
 const TableSkeleton = () => {
   return (
-    <>
-      {Array(5)
+    <table>
+<tbody>
+{Array(5)
         .fill(0)
         .map((_, index) => (
           <tr
@@ -29,7 +30,10 @@ const TableSkeleton = () => {
             </td>
           </tr>
         ))}
-    </>
+</tbody>
+
+    
+    </table>
   );
 };
 

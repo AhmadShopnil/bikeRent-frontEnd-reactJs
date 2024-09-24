@@ -1,13 +1,18 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useGetSingleBikeByIdQuery } from "../../redux/api/bikeApi";
 import TableSkeleton from "../../components/Shared/Skeleton/TableSkeleton";
+import { useAddRentalMutation } from "../../redux/api/rentalApi";
+import { getCurrentTimeISO } from "../../utils/getCurrentTimeIso";
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
 
   const { bikeId } = useParams<{ bikeId: string }>();
   const { data, isLoading, isError, error } = useGetSingleBikeByIdQuery(bikeId);
+  const [addRental]=useAddRentalMutation();
+
 
   if (isLoading) {
     return <TableSkeleton></TableSkeleton>; // Show loading state
@@ -19,19 +24,37 @@ const CheckoutPage = () => {
       <div>
         <p>Faild To load bike data</p>
       </div>
-    ); // Show error message
+    );
   }
 
   const { name, pricePerHour, description } = data.data;
 
-  console.log("name", name);
 
   // Handle booking confirmation
-  const handleConfirmBooking = () => {
-    // Redirect to booking confirmation  page
-    navigate("/dashboard/user/bookingConfirmation", {
-      state: { bike: data?.data, pricePerHour },
-    });
+  const handleConfirmBooking = async() => {
+    const startTime= getCurrentTimeISO()
+
+const payload={bikeId,startTime}
+
+
+
+
+  try {
+    await addRental(payload).unwrap()
+
+      // Redirect to booking confirmation  page
+      navigate("/dashboard/user/bookingConfirmation", {
+        state: { bike: data?.data, pricePerHour },
+      });
+  } catch (error:any) {
+
+    return (<>
+    <h2>Booking Faild!</h2>
+    <p>{error?.data?.message}</p>
+    </>)
+    
+  }
+  
   };
 
   return (

@@ -41,11 +41,7 @@ export const userMenuItem = [
     path: "/dashboard/user/profile",
     icon: User,
   },
-  {
-    name: " Bike List",
-    path: "/dashboard/user/bikeList",
-    icon: Bike,
-  },
+  
   {
     name: "MyRental",
     path: "/dashboard/user/rentalManagement",

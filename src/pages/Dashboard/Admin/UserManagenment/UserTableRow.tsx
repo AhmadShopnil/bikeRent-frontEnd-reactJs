@@ -9,11 +9,12 @@ export const UserTableRow = ({ user }: { user: TUser }) => {
   const [makeAdmin] = useMakeAdminMutation();
   const [deleteSingleUser] = useDeleteSingleUserMutation();
 
-  console.log(user);
-
+  // delete user by id
   const handleDeleteSingleUser = (id: string) => {
     deleteSingleUser(id);
   };
+
+  // change  user role form user to admin
   const handleMakeAdminSingleUser = (id: string) => {
     console.log(id);
     makeAdmin(id);
@@ -22,13 +23,16 @@ export const UserTableRow = ({ user }: { user: TUser }) => {
   return (
     <tr key={user?._id} className="hover:bg-gray-100 dark:hover:bg-neutral-700">
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-        {user.name}
+        {user?.name}
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
+        {user?.email}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-        {user.phone}
+        {user?.phone}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-        {user.address}
+        {user?.address}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
         {user?.role === "admin" ? (

@@ -8,13 +8,11 @@ import BookingConfirmation from "../pages/CheckoutPage/BookingConfermation";
 import Dashboard2 from "../layout/Dashboard2";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
-import UserDashboard from "../pages/Dashboard/User/Dashboard/UserDashboard";
 import UserProfile from "../pages/Dashboard/User/Profile/UserProfile";
 import BikeManagement from "../pages/Dashboard/Admin/BikeManagement/BikeManagement";
 import MyRental from "../pages/Dashboard/User/MyRental/MyRental";
 import Help from "../pages/Dashboard/User/Help/Help";
 import RentalDetails from "../pages/Dashboard/User/MyRental/RentalDetails";
-import AdminDashboard from "../pages/Dashboard/Admin/AdminDashboard/AdminDashboard";
 import AdminProfile from "../pages/Dashboard/Admin/Profile/Profile";
 import AllRental from "../pages/Dashboard/Admin/AllRental/AllRental";
 import UserManagement from "../pages/Dashboard/Admin/UserManagenment/UserManagement";
@@ -59,7 +57,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard/user",
-        element: <UserDashboard></UserDashboard>,
+        element: <UserProfile></UserProfile>,
       },
 
       {
@@ -96,13 +94,17 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard/admin",
-    // element: <Dashboard3></Dashboard3>,
+  
     element: <Dashboard2></Dashboard2>,
     // element: <DashboardLayout></DashboardLayout>,
     children: [
+      // {
+      //   path: "/dashboard/admin",
+      //   element: <AdminDashboard></AdminDashboard>,
+      // },
       {
         path: "/dashboard/admin",
-        element: <AdminDashboard></AdminDashboard>,
+        element: <AdminProfile></AdminProfile>,
       },
       {
         path: "/dashboard/admin/profile",

@@ -64,6 +64,15 @@ const userApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["users"],
     }),
+    updateProfile: build.mutation({
+      query: (data) => ({
+        url: `/users/me`,
+        method: "Put",
+        contentType: "application/json",
+        body: data,
+      }),
+      invalidatesTags: ["profile"],
+    }),
     //
   }),
 });
@@ -75,4 +84,5 @@ export const {
   useSignUpMutation,
   useMakeAdminMutation,
   useDeleteSingleUserMutation,
+  useUpdateProfileMutation
 } = userApi;

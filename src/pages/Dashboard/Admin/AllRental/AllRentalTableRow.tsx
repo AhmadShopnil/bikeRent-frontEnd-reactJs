@@ -1,13 +1,31 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Trash2 } from "lucide-react";
 import { TRental } from "../../../../interfaces/rental.interface";
+import { useDeleteSingleRentalMutation, useReturnRentalMutation } from "../../../../redux/api/rentalApi";
 
 const AllRentalTableRow = ({ rental }: { rental: TRental }) => {
-  const { userId, bikeId, startTime, returnTime, totalCost, isReturned, _id } =
+  const { userId, bikeId,  returnTime, isReturned, _id } =
     rental;
 
-  const handleDelete = (id: string) => {};
-  const handleReturn = (id: string) => {};
+const [deleteSingleRental]=useDeleteSingleRentalMutation();
+const [returnRental]=useReturnRentalMutation();
+  const handleDelete = (id: string) => {
+ try {
+  deleteSingleRental(id)
+  } catch (error:any) {
+  console.log(error)
+  } 
+  };
+  const handleReturn = (id: string) => {
+
+    try {
+      returnRental(id)
+      } catch (error:any) {
+      console.log(error)
+      } 
+
+  };
 
   return (
     <tr key={_id} className="hover:bg-gray-100 dark:hover:bg-neutral-700">

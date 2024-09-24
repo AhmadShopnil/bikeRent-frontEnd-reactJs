@@ -1,15 +1,14 @@
-import { useState } from "react";
 
 import { TBike } from "../../interfaces/bike.interface";
 import { useGetAllBikesQuery } from "../../redux/api/bikeApi";
-import BikeFilters from "./BikeFilters";
+
 import CardBike from "../../components/Shared/BikeCard/CardBike";
 import TableSkeleton from "../../components/Shared/Skeleton/TableSkeleton";
 
 const BikeList = () => {
   const { data: bikes, isLoading, isError } = useGetAllBikesQuery("");
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [filteredBikes, setFilteredBikes] = useState(bikes?.data || []);
+  
+  // const [filteredBikes, setFilteredBikes] = useState(bikes?.data || []);
   if (isLoading) {
     return <TableSkeleton></TableSkeleton>; // Show loading state
   }
@@ -28,10 +27,10 @@ const BikeList = () => {
         Available Bikes
       </h1>
 
-      <BikeFilters
+      {/* <BikeFilters
         bikes={bikes?.data || []}
         setFilteredBikes={setFilteredBikes}
-      />
+      /> */}
       <div
         className="grid grid-cols-1 sm:grid-cols-2
        md:grid-cols-3 lg:grid-cols-4  gap-6"

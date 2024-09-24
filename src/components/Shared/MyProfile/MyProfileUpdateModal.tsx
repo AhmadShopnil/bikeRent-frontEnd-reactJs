@@ -1,17 +1,18 @@
 import { useState } from "react";
+import { TUser } from "../../../interfaces/user.interface";
+import { useUpdateProfileMutation } from "../../../redux/api/userApi";
 
-import { useUpdateBikeMutation } from "../../../../redux/api/bikeApi"; // Hook for updating bike
-import { TBike } from "../../../../interfaces/bike.interface";
 
-const UpdateBikeModal = ({
-  bike,
+
+const MyProfileUpdateModal = ({
+  userInfo,
   onClose,
 }: {
-  bike: TBike;
+    userInfo: TUser;
   onClose: () => void;
 }) => {
-  const [formData, setFormData] = useState(bike); // Prefill form with bike data
-  const [updateBike, { isLoading }] = useUpdateBikeMutation(); // Hook for updating bike
+  const [formData, setFormData] = useState(userInfo); // Prefill form with bike data
+  const [updateProfile, { isLoading }] = useUpdateProfileMutation(); // Hook for updating bike
 
  
 
@@ -28,10 +29,10 @@ const UpdateBikeModal = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await updateBike(formData); // Send updated bike data to the server
+      await updateProfile(formData); // Send updated profile data to the server
       onClose(); // Close modal after successful update
     } catch (error) {
-      console.error("Failed to update bike:", error);
+      console.error("Failed to update profile:", error);
     }
   };
 
@@ -53,7 +54,7 @@ const UpdateBikeModal = ({
             ✕
           </button>
 
-          <h3 className="font-bold text-lg">Update Bike</h3>
+          <h3 className="font-bold text-lg">Update Profile</h3>
 
           <div className="mt-4">
             <label className="block">Name</label>
@@ -67,44 +68,22 @@ const UpdateBikeModal = ({
           </div>
 
           <div className="mt-4">
-            <label className="block">Model</label>
+            <label className="block">Phone</label>
             <input
               type="text"
-              name="model"
-              value={formData?.model}
+              name="phone"
+              value={formData?.phone}
               onChange={handleChange}
               className="input input-bordered w-full"
             />
           </div>
 
           <div className="mt-4">
-            <label className="block">Brand</label>
+            <label className="block">Address</label>
             <input
               type="text"
-              name="brand"
-              value={formData.brand}
-              onChange={handleChange}
-              className="input input-bordered w-full"
-            />
-          </div>
-
-          <div className="mt-4">
-            <label className="block">Price Per Hour</label>
-            <input
-              type="number"
-              name="pricePerHour"
-              value={formData.pricePerHour}
-              onChange={handleChange}
-              className="input input-bordered w-full"
-            />
-          </div>
-
-          <div className="mt-4">
-            <label className="block">CC</label>
-            <input
-              type="number"
-              name="cc"
-              value={formData.cc}
+              name="address"
+              value={formData.address}
               onChange={handleChange}
               className="input input-bordered w-full"
             />
@@ -119,7 +98,7 @@ const UpdateBikeModal = ({
                  text-white hover:bg-[#51b0e3] focus:outline-none"
               disabled={isLoading}
             >
-              {isLoading ? "Updating..." : "Update Bike"}
+              {isLoading ? "Updating..." : "Update Profile"}
             </button>
           </div>
         </form>
@@ -128,4 +107,4 @@ const UpdateBikeModal = ({
   );
 };
 
-export default UpdateBikeModal;
+export default MyProfileUpdateModal;

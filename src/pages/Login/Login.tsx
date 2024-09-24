@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useLoginMutation } from "../../redux/api/userApi";
 import { saveUserInfo } from "../../services/authServices";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../redux/hooks";
+import { setUser } from "../../redux/api/slices/authSlice";
+import { decodedToken } from "../../utils/jwt";
 
 interface LoginData {
   email: string;
@@ -9,12 +13,14 @@ interface LoginData {
 }
 
 const Login = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const [loginError,setLoginError]=useState('')
   const [loginData, setLoginData] = useState<LoginData>({
     email: "",
     password: "",
   });
-  const [login, { error }] = useLoginMutation();
+  const [login] = useLoginMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginData({
@@ -33,9 +39,14 @@ const Login = () => {
 
       if (accessToken) {
         saveUserInfo({ accessToken });
+        const user = decodedToken(accessToken);
+        dispatch(setUser({ user: user, token:accessToken }));
+
         navigate("/");
       }
-    } catch (error) {
+    } catch (error:any) {
+
+      setLoginError(error?.data?.message)
       console.error("Login failed:", error);
     }
   };
@@ -44,7 +55,7 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center">
       <form onSubmit={handleSubmit} className="space-y-6">
         <h2 className="text-xl font-bold">Login</h2>
-        <span className="text-red-400">{error?.data?.message}</span>
+        <span className="text-red-400">{loginError}</span>
         <input
           type="email"
           name="email"

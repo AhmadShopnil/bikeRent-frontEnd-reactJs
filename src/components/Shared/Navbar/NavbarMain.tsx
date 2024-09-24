@@ -1,28 +1,32 @@
-
-import {  useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { navMenuItems } from "./NavMenuItem";
 import SolidPrimaryButton from "../Buttons/SolidPrimaryButton";
 import {
+  getUserInfo,
   removeUser,
+  isLoggedIn,
 } from "../../../services/authServices";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { logout, selectCurrentUser } from "../../../redux/api/slices/authSlice";
 
 const Navbar = () => {
-    const dispatch = useAppDispatch();
   const [isOpen, setIsOpen] = useState(false);
-
-  const user = useAppSelector(selectCurrentUser);
- 
+  const user: any = getUserInfo();
+  const loggedin = isLoggedIn();
   const role = user?.role;
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(loggedin);
 
+  useEffect(() => {
+    if (user?.role) {
+      setIsUserLoggedIn(true);
+    }
+  }, [user, loggedin]);
 
   //  handle logOut user
   const handleLogout = () => {
     removeUser();
-    dispatch(logout());
+    setIsUserLoggedIn(false);
   };
 
   // Toggle function for mobile menu
@@ -52,7 +56,7 @@ const Navbar = () => {
 
         {/* Right Side: Auth and Dashboard Buttons */}
         <div className="hidden md:flex space-x-4">
-          {role ? (
+          {isUserLoggedIn ? (
             <>
               <button
                 onClick={handleLogout}
