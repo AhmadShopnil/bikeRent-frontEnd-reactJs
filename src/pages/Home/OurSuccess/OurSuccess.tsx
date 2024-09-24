@@ -9,7 +9,7 @@ const OurSuccess = () => {
             {/* <!-- Title --> */}
             <div className="mb-8">
               <h2 className="mb-2 text-3xl text-gray-800 font-bold lg:text-4xl dark:text-neutral-200">
-                It's all about Service
+                It's all about Services
               </h2>
               <p className="text-gray-600 dark:text-neutral-400">
                 We provide you with a test account that can be set up in

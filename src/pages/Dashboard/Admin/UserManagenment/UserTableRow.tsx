@@ -30,9 +30,7 @@ export const UserTableRow = ({ user }: { user: TUser }) => {
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
         {user.address}
       </td>
-
-      {/* Actions handle */}
-      <td className=" flex gap-8 justify-center  px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
         {user?.role === "admin" ? (
           <>
             <span>Admin</span>
@@ -53,7 +51,10 @@ export const UserTableRow = ({ user }: { user: TUser }) => {
             </button>
           </>
         )}
+      </td>
 
+      {/* Actions handle */}
+      <td className=" flex gap-8 justify-center  px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
         <button
           onClick={() => handleDeleteSingleUser(user?._id)}
           type="button"

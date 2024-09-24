@@ -14,8 +14,12 @@ const Dashboard2 = () => {
           <div className="">
             <Navbar />
 
-            {/* dashboard button */}
-            <button
+            {/* dashboard open button */}
+            <label htmlFor="my-drawer" className="btn  drawer-button">
+              <MoveRight size={22} />
+            </label>
+
+            {/* <button
               className="mt-2 text-sm  px-3 py-1 mb-6 bg-blue-500 text-white
              hover:bg-blue-700 rounded-r-md 
              shadow-sm transition-all"
@@ -23,13 +27,13 @@ const Dashboard2 = () => {
               <label htmlFor="my-drawer" className=" drawer-button">
                 <MoveRight size={22} />
               </label>
-            </button>
+            </button> */}
             {/* back button */}
             <div className=" flex justify-end  ">
               <button
-                className=" bg-blue-500  text-sm text-white px-3 py-1 mb-6 
+                className=" bg-[#51B0E3]  text-sm text-white px-3 py-1 mb-6 
             rounded-md shadow-sm
-             hover:bg-blue-700 transition-all"
+             hover:bg-[#2da4e4] transition-all"
                 onClick={() => window.history.back()}
               >
                 <Undo2 size={22} />
