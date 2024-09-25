@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../redux/hooks";
 import { setUser } from "../../redux/api/slices/authSlice";
 import { decodedToken } from "../../utils/jwt";
+import { TUserJwtPayload } from "../../interfaces/user.interface";
 
 interface LoginData {
   email: string;
@@ -39,10 +40,10 @@ const Login = () => {
 
       if (accessToken) {
         saveUserInfo({ accessToken });
-        const user = decodedToken(accessToken);
+        const user= decodedToken(accessToken) as TUserJwtPayload ;
         dispatch(setUser({ user: user, token:accessToken }));
 
-        navigate("/");
+        navigate(`/dashboard/${user?.role}`);
       }
     } catch (error:any) {
 

@@ -20,6 +20,7 @@ const MyRentalCard = ({ rental }: { rental: TRental }) => {
         >
           {isReturned ? "Returned" : "Not Returned"}
         </span>
+       
       </div>
 
       {/* Information Section */}
@@ -54,10 +55,25 @@ const MyRentalCard = ({ rental }: { rental: TRental }) => {
             </div>
           </>
         )}
+
+        <div className="flex justify-between">
+          <p className="font-medium text-gray-700">Bill:</p>
+          <span
+          className={`${
+            isReturned ? "bg-blue-300" : "bg-red-300"
+          } text-white px-2 py-1 rounded-md text-xs font-medium`}
+        >
+          {isReturned ? "Paid" : "Not Paid"}
+        </span>
+        </div>
+
+        
       </div>
 
       {/* Footer */}
-      <div className="mt-4 text-right">
+      <div className="mt-4   text-right">
+
+     
         <button
           className="py-2 px-3 bg-blue-500 text-xs
          text-white rounded-md shadow-sm hover:bg-blue-700

@@ -9,3 +9,9 @@ export type TUser = {
   role: string;
   updatedAt: string;
 };
+
+export type TUserJwtPayload = {
+  userId: string;
+  role: string;
+  email: string;
+};

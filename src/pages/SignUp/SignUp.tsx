@@ -3,6 +3,10 @@ import { useState } from "react";
 import { useSignUpMutation } from "../../redux/api/userApi";
 import { saveUserInfo } from "../../services/authServices";
 import { useNavigate } from "react-router-dom";
+import { TUserJwtPayload } from "../../interfaces/user.interface";
+import { setUser } from "../../redux/api/slices/authSlice";
+import { decodedToken } from "../../utils/jwt";
+import { useAppDispatch } from "../../redux/hooks";
 
 interface SignupData {
   name: string;
@@ -14,6 +18,7 @@ interface SignupData {
 }
 
 const Signup = () => {
+  const dispatch = useAppDispatch();
   const [signupError,setSignupError]=useState('')
   const [signupData, setSignupData] = useState<SignupData>({
     name: "",
@@ -40,10 +45,11 @@ const Signup = () => {
       const response = await signup(signupData).unwrap();
       const accessToken = response?.token;
 
-      console.log("login:", accessToken);
       if (accessToken) {
         saveUserInfo({ accessToken });
-        navigate("/");
+        const user= decodedToken(accessToken) as TUserJwtPayload ;
+        dispatch(setUser({ user: user, token:accessToken }));
+        navigate(`/dashboard/${user?.role}`);
       }
     } catch (error:any) {
       setSignupError(error?.data?.message)
