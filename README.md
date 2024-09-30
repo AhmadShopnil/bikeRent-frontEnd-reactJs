@@ -6,17 +6,24 @@ A fully responsive, user-friendly bike rental booking system that allows users t
 
 Check out the live project here: [Bike Rental Booking System](https://front-end-bike-rent.vercel.app/)
 
+
+
+## User Credentials-
+ **Admin User**: admin@gmail.com
+ **Admin Password**: 123456
+
+
+
+
 ## Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
+
 
 ### User Features
 - **User Authentication**: Secure login and sign-up functionality with role-based access control (User/Admin).
