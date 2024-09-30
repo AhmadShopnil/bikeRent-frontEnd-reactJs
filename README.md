@@ -1,50 +1,63 @@
-# React + TypeScript + Vite
+# Bike Rental Booking System 🚲
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully responsive, user-friendly bike rental booking system that allows users to rent bikes, manage rentals, and apply discount coupons. This system includes role-based authentication, user and admin functionalities, and seamless booking and payment processes.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Check out the live project here: [Bike Rental Booking System](https://front-end-bike-rent.vercel.app/)
 
-## Expanding the ESLint configuration
+## Table of Contents
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+### User Features
+- **User Authentication**: Secure login and sign-up functionality with role-based access control (User/Admin).
+- **Bike Listing and Filters**: Users can browse and filter bikes by brand, model, availability, and more.
+- **Booking and Payment**: Users can book bikes, make payments, and manage their rental history.
+- **Profile Management**: Users can view and update their personal information.
+- **Coupons**: Apply discount coupons during the booking process.
+- **Responsive Design**: Fully responsive across mobile, tablet, and desktop devices.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Admin Features
+- **Bike Management**: Admins can add, update, and delete bikes. The system supports bike filtering based on model, brand, and availability.
+- **User Management**: Admins can promote users to admins or delete user accounts.
+- **Rental Management**: Admins can manage bike rentals, calculate rental costs, and mark bikes as returned.
+- **Coupon Management**: Create and manage discount coupons that users can apply during rentals.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Additional Features
+- **Dark Mode**: Toggle between light and dark mode for a customized experience.
+- **Gamified Coupon System**: Spin-the-wheel feature allowing users to win discount coupons with various percentages.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Technologies Used
+- **Frontend**: React, TypeScript, Tailwind CSS, Redux, DaisyUI
+- **Backend**: Node.js, Express.js, MongoDB (Mongoose)
+- **Payment Integration**: Stripe or another payment gateway for secure transactions
+- **State Management**: Redux Toolkit
+- **Form Validation**: React Hook Form, Zod
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Getting Started
+
+To run this project locally, follow the instructions below.
+
+### Prerequisites
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/)
+- [Git](https://git-scm.com/)
+
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/bike-rental-booking-system.git
+   cd bike-rental-booking-system
+
+
