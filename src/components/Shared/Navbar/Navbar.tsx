@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center py-4 px-4">
         {/* Left Side: Brand Name */}
         <div className="text-2xl font-bold">
-          <Link to="/">BrandName</Link>
+          <Link to="/">BikeRent</Link>
         </div>
 
         {/* Middle: Menu Items (hidden on small devices) */}
