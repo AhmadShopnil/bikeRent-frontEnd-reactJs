@@ -24,6 +24,10 @@ const MyRental = () => {
     ); // Show error message
   }
 
+
+
+
+
   return (
     <div>
       <div className="grid grid-cols-2 gap-6">

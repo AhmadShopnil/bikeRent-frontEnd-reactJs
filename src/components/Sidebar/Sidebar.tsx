@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link } from "react-router-dom";
 import { adminMenuItem, userMenuItem } from "./SidebarMenuItem";
 import DynamicMenus from "./DynamicMenus";

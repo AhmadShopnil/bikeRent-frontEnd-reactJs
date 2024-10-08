@@ -5,7 +5,7 @@ const rentalApi = baseApi.injectEndpoints({
     addRental: build.mutation({
       query: (data) => {
         return {
-          url: "/rentals",
+          url: "/payment/init",
           method: "POST",
           // contentType: "multipart/form-data",
           contentType: "application/json",
@@ -42,6 +42,18 @@ const rentalApi = baseApi.injectEndpoints({
       providesTags: ["rentals"],
     }),
     //
+
+    getSingleRentalsByTranId: build.query({
+      query: (transactionId) => {
+        return {
+          url: `/rentals/byTranId/${transactionId}`,
+          method: "GET",
+        };
+      },
+      providesTags: ["rentals"],
+    }),
+    //
+
     deleteSingleRental: build.mutation({
       query: (id) => ({
         url: `/rentals/${id}`,
@@ -66,5 +78,6 @@ export const {
   useGetMyAllRentalsQuery,
   useGetAllRentalsQuery,
   useGetSingleRentalsByIdQuery,
-  useReturnRentalMutation
+  useReturnRentalMutation,
+  useGetSingleRentalsByTranIdQuery
 } = rentalApi;

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 
 import { useGetSingleBikeByIdQuery } from "../../redux/api/bikeApi";
 import TableSkeleton from "../../components/Shared/Skeleton/TableSkeleton";
@@ -7,7 +7,7 @@ import { useAddRentalMutation } from "../../redux/api/rentalApi";
 import { getCurrentTimeISO } from "../../utils/getCurrentTimeIso";
 
 const CheckoutPage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { bikeId } = useParams<{ bikeId: string }>();
   const { data, isLoading, isError, error } = useGetSingleBikeByIdQuery(bikeId);
@@ -31,31 +31,60 @@ const CheckoutPage = () => {
 
 
   // Handle booking confirmation
-  const handleConfirmBooking = async() => {
-    const startTime= getCurrentTimeISO()
 
-const payload={bikeId,startTime}
-
-
-
-
-  try {
-    await addRental(payload).unwrap()
-
-      // Redirect to booking confirmation  page
-      navigate("/dashboard/user/bookingConfirmation", {
-        state: { bike: data?.data, pricePerHour },
-      });
-  } catch (error:any) {
-
-    return (<>
-    <h2>Booking Faild!</h2>
-    <p>{error?.data?.message}</p>
-    </>)
-    
-  }
+  const handleConfirmBooking = async () => {
+    const startTime = getCurrentTimeISO();
+    const payload = { bikeId, startTime };
   
+    try {
+      // Call addRental and get the payment URL from the response
+      const response = await addRental(payload).unwrap();
+      console.log('form confirm booking', response)
+      const paymentUrl = response?.data?.paymentUrl;
+      
+      if (paymentUrl) {
+        // Open the payment URL in a new tab
+        window.open(paymentUrl, "_blank");
+      } else {
+        console.error('Payment URL not found.');
+      }
+      
+  
+    } catch (error: any) {
+      // Display an error message in case of failure
+      return (
+        <>
+          <h2>Booking Failed!</h2>
+          <p>{error?.data?.message}</p>
+        </>
+      );
+    }
   };
+  
+
+
+
+  // const handleConfirmBooking = async() => {
+  //   const startTime= getCurrentTimeISO()
+  //   const payload={bikeId,startTime}
+
+  // try {
+  //   await addRental(payload).unwrap()
+
+  //     // Redirect to booking confirmation  page
+  //     navigate("/dashboard/user/bookingConfirmation", {
+  //       state: { bike: data?.data, pricePerHour },
+  //     });
+  // } catch (error:any) {
+
+  //   return (<>
+  //   <h2>Booking Faild!</h2>
+  //   <p>{error?.data?.message}</p>
+  //   </>)
+    
+  // }
+  
+  // };
 
   return (
     <div className="p-6 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">

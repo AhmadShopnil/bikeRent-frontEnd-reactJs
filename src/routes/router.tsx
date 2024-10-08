@@ -17,6 +17,8 @@ import AdminProfile from "../pages/Dashboard/Admin/Profile/Profile";
 import AllRental from "../pages/Dashboard/Admin/AllRental/AllRental";
 import UserManagement from "../pages/Dashboard/Admin/UserManagenment/UserManagement";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import PrivateRoutes from "./PrivateRoutes";
+import PaymentFailed from "../pages/Payment/PaymentFaild";
 
 export const router = createBrowserRouter([
   {
@@ -62,12 +64,17 @@ export const router = createBrowserRouter([
 
       {
         path: "/dashboard/user/checkout/:bikeId",
-        element: <CheckoutPage />,
+        element: <PrivateRoutes allowedRoles={["user"]}><CheckoutPage /></PrivateRoutes>,
       },
       {
-        path: "/dashboard/user/bookingConfirmation",
+        path: "/dashboard/user/bookingConfirmation/:transactionId",
         element: <BookingConfirmation />,
       },
+      {
+        path: "/dashboard/user/bookingFailed",
+        element: <PaymentFailed />,
+      },
+
 
       {
         path: "/dashboard/user/profile",
