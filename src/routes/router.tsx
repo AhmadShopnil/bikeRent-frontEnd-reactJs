@@ -19,6 +19,7 @@ import UserManagement from "../pages/Dashboard/Admin/UserManagenment/UserManagem
 import AboutUs from "../pages/AboutUs/AboutUs";
 import PrivateRoutes from "./PrivateRoutes";
 import PaymentFailed from "../pages/Payment/PaymentFaild";
+import NotFound from "../components/NotFound/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -130,5 +131,11 @@ export const router = createBrowserRouter([
         element: <UserManagement></UserManagement>,
       },
     ],
+  },
+
+  {
+ 
+    path: "*",
+    element: <NotFound />, // Display the NotFound component for any undefined route
   },
 ]);
