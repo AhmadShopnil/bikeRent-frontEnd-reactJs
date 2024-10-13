@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TBike } from "./bike.interface";
 
 export type TRental = {
@@ -9,8 +8,8 @@ export type TRental = {
   returnTime: string | null;
   totalCost?: number | null;
   isReturned?: boolean;
-  transactionId?:string;
-  isAdvanced?:boolean;
+  transactionId?: string;
+  isAdvanced?: boolean;
   pricePerHour: number;
-  bikeData?:TBike
+  bikeData?: TBike;
 };

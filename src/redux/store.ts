@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
-import authReducer from "./api/slices/authSlice"; // your auth slice
+import storage from "redux-persist/lib/storage"; 
+import authReducer from "./api/slices/authSlice"; 
 import { baseApi } from "./api/baseApi";
 
 // Configuration for persisting the auth state in localStorage
@@ -15,10 +15,10 @@ const persistConfig = {
 // Combine all  reducers
 const rootReducer = combineReducers({
   [baseApi.reducerPath]: baseApi.reducer,
-  auth: authReducer, // this is the Persisted reducer
+  auth: authReducer, 
 });
 
-// Wrap  authReducer with persistReducer
+// Wrap  rootReducer with persistReducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // Configure  Redux store
